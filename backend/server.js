@@ -11,7 +11,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL, // your Vite dev server
+    credentials: true, // allow cookies (for OAuth)
+  })
+);
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -30,9 +35,23 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/",
-    successRedirect: "/dashboard",
+    successRedirect: process.env.CLIENT_URL + "/dashboard",
   })
 );
+
+app.get("/auth/user", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json(req.user);
+  } else {
+    res.status(401).json({ message: "Not authenticated" });
+  }
+});
+
+app.post("/auth/logout", (req, res) => {
+  req.logout(() => {
+    res.status(200).json({ message: "Logged out" });
+  });
+});
 
 const taskRoutes = require("./routes/taskRoutes");
 

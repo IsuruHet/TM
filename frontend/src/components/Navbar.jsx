@@ -38,10 +38,6 @@ const Navbar = () => {
         <Link to="/tasks" className="hover:underline">
           Tasks
         </Link>
-        <Link to="/tasks/add" className="hover:underline">
-          Add Tasks
-        </Link>
-
         {user ? (
           <button
             onClick={handleLogout}

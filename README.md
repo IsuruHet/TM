@@ -8,7 +8,7 @@ A full-stack web application that allows admin users to manage intern tasks with
 
 ### 🚀 Live Demo (Optional)
 
-> \[Live App URL Here]
+https://github.com/user-attachments/assets/440e0007-0ce4-4f65-a7d1-5fd0ec025c10
 
 ---
 

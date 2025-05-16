@@ -2,8 +2,6 @@
 
 A full-stack web application that allows admin users to manage intern tasks with features like Google OAuth login, CRUD operations, PDF reporting, and responsive UI using Tailwind CSS.
 
-> Developed as part of the Gamage Recruiters SE Intern Project – May 2025.
-
 ---
 
 ### 🚀 Live Demo

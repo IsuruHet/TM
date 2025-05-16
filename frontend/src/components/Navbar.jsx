@@ -11,6 +11,7 @@ const Navbar = () => {
         withCredentials: true,
       });
       setUser(null);
+      localStorage.removeItem("user");
     } catch (err) {
       console.error("Logout failed", err);
     }
@@ -46,7 +47,7 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <Link to="/" className="hover:underline">
+          <Link to="/login" className="hover:underline">
             Login
           </Link>
         )}

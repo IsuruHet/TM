@@ -3,7 +3,10 @@ import api from "../api";
 import AuthContext from "./AuthContext";
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   useEffect(() => {
     api
@@ -11,6 +14,14 @@ const AuthProvider = ({ children }) => {
       .then((res) => setUser(res.data))
       .catch(() => setUser(null));
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+  }, [user]);
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>

@@ -6,7 +6,7 @@ A full-stack web application that allows admin users to manage intern tasks with
 
 ---
 
-### 🚀 Live Demo (Optional)
+### 🚀 Live Demo
 
 https://github.com/user-attachments/assets/440e0007-0ce4-4f65-a7d1-5fd0ec025c10
 
@@ -54,6 +54,7 @@ project-root/
 │   ├── models/
 │   ├── routes/
 │   ├── config/
+|   ├── utils/
 │   └── server.js
 ├── frontend/
 │   ├── public/
@@ -76,6 +77,7 @@ project-root/
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 MONGO_URI=mongodb+srv://...
+PORT=5000
 CLIENT_URL=http://localhost:5173
 ```
 

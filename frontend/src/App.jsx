@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import TaskList from "./pages/TaskList";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -13,14 +14,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/" element={<Home />} />
 
           <Route path="/login" element={<Login />} />
           <Route

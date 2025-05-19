@@ -34,8 +34,8 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "/",
     successRedirect: process.env.CLIENT_URL + "/dashboard",
+    failureRedirect: "/",
   })
 );
 

@@ -8,11 +8,14 @@ const AuthProvider = ({ children }) => {
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     api
-      .get("/auth/user")
+      .get("/auth/user", { withCredentials: true })
       .then((res) => setUser(res.data))
-      .catch(() => setUser(null));
+      .catch(() => setUser(null))
+      .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
@@ -24,7 +27,7 @@ const AuthProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, loading }}>
       {children}
     </AuthContext.Provider>
   );
